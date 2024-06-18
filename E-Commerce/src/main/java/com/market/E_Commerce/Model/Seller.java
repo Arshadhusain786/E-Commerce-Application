@@ -34,7 +34,7 @@ public class Seller
     private String panNo;
 
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
-            // initialize it empty list
+    // initialize it empty list
     List<Product> products = new ArrayList<>();
 
 

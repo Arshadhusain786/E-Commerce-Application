@@ -3,6 +3,7 @@ package com.market.E_Commerce.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name="customer")
 
 public class Customer
@@ -21,6 +23,8 @@ public class Customer
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     int id;
     private String name;
+
+    private int age;
 
     @Column(unique= true)
     private String email;

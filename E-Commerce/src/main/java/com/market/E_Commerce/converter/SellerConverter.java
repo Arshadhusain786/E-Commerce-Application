@@ -7,11 +7,11 @@ public class SellerConverter
 {
     public static Seller SellerRequestDtoToSeller(SellerRequestDto sellerRequestDto)
     {
-         return Seller.builder()
-                 .name(sellerRequestDto.getName())
-                 .email(sellerRequestDto.getEmail())
-                 .mobNo(sellerRequestDto.getMobNo())
-                 .panNo(sellerRequestDto.getPanNo())
-                 .build();
+        return Seller.builder()
+                .name(sellerRequestDto.getName())
+                .email(sellerRequestDto.getEmail())
+                .mobNo(sellerRequestDto.getMobNo())
+                .panNo(sellerRequestDto.getPanNo())
+                .build();
     }
 }

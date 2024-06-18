@@ -26,7 +26,7 @@ public class ProductService
     public ProductResponseDto addProduct(ProductRequestDto productRequestDto) throws SellerNotFoundException {
         Seller seller;
         try{
-           seller = sellerRepository.findById(productRequestDto.getSellerId()).get();
+            seller = sellerRepository.findById(productRequestDto.getSellerId()).get();
         }
         catch(Exception e)
         {
@@ -49,9 +49,9 @@ public class ProductService
 
     public List<ProductResponseDto> getProductsByCategory(ProductCategory productCategory)
     {
-       List<Product> products = productRepository.findAllByProductCategory(productCategory);
+        List<Product> products = productRepository.findAllByProductCategory(productCategory);
 
-       //prepare a list of response dto
+        //prepare a list of response dto
         List<ProductResponseDto> productResponseDtos = new ArrayList<>();
         for(Product product:products)
         {

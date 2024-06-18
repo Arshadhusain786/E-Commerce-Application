@@ -18,10 +18,10 @@ public class SellerController
     @PostMapping("add")
     public String addSeller(@RequestBody SellerRequestDto sellerRequestDto)
     {
-          return sellerService.addseller(sellerRequestDto);
+        return sellerService.addseller(sellerRequestDto);
     }
     // Get all the authors
-    
+
 
 
 }
