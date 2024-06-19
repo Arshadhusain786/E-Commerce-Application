@@ -3,6 +3,7 @@ package com.market.E_Commerce.Service;
 import com.market.E_Commerce.Exception.CustomerNotFoundException;
 import com.market.E_Commerce.Model.Card;
 import com.market.E_Commerce.Model.Customer;
+import com.market.E_Commerce.Repository.CardRepository;
 import com.market.E_Commerce.Repository.CustomerRepository;
 import com.market.E_Commerce.RequestDTO.CardRequestDto;
 import com.market.E_Commerce.ResponseDTO.CardDto;
@@ -19,6 +20,8 @@ public class CardService
 {
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    CardRepository cardRepository;
 
    public CardResponseDto addCard(CardRequestDto cardRequestDto) throws CustomerNotFoundException {
        Customer customer;
@@ -63,6 +66,21 @@ public class CardService
 
        return cardResponseDto;
 
+   }
+   public String removeCard(int id) throws Exception
+   {
+       Customer customer = customerRepository.findById(id).get();
+
+       if(customer==null)
+       {
+           throw new Exception("customer with this id not exist");
+       }
+       List<Card> cards = cardRepository.findByCustomer(customer);
+
+       for (Card card : cards) {
+           cardRepository.delete(card);
+       }
+       return "Cards removed Successfully of given customer id ";
 
    }
 }

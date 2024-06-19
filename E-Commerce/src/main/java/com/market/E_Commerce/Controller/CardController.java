@@ -3,6 +3,7 @@ package com.market.E_Commerce.Controller;
 
 import com.market.E_Commerce.RequestDTO.CardRequestDto;
 import com.market.E_Commerce.ResponseDTO.CardResponseDto;
+
 import com.market.E_Commerce.Service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +32,20 @@ public class CardController
        }
        return new ResponseEntity(cardResponseDto,HttpStatus.ACCEPTED);
     }
-    // remove the card
+    //  //remove all cards for a particular customer id
 
-    //remove all cards for a particular customer id
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> removeCard(@RequestParam("id") int id)
+    {
+        try{
+            cardService.removeCard(id);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("Customer Not Exist!",HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>("All Card with given customer id deleted successfully",HttpStatus.ACCEPTED);
+
+    }
 
 
 }

@@ -56,6 +56,20 @@ public class CustomerController
             return new ResponseEntity<>("Customer with such ID does not exist", HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("get_by_email")
+    public ResponseEntity<?> getCustomerByEmail(@RequestParam String email)
+    {
+       CustomerResponseDto customerResponseDto;
+       try{
+           customerResponseDto= customerService.getCustomerByEmail(email);
+
+       }
+       catch(Exception e)
+       {
+           return new ResponseEntity<>("Customer with this email does not exist",HttpStatus.NOT_FOUND);
+       }
+        return new ResponseEntity<>(customerResponseDto, HttpStatus.ACCEPTED);
+    }
 
 
 }

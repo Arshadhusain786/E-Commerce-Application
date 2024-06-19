@@ -8,6 +8,7 @@ import com.market.E_Commerce.ResponseDTO.CustomerResponseDto;
 import com.market.E_Commerce.converter.CustomerConvertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,5 +87,24 @@ public class CustomerService {
             return "Customer deleted successfully";
         }
     }
+    @GetMapping("/get_by_email")
+    public CustomerResponseDto getCustomerByEmail(String email)
+    {
+        Customer customer = customerRepository.getCustomerByEmail(email);
+
+        // prepare customer Response Dto
+        // converting customer to customerResponseDto
+
+        CustomerResponseDto customerResponseDto;
+        customerResponseDto=CustomerResponseDto.builder()
+                .name(customer.getName())
+                .age(customer.getAge())
+                .email(customer.getEmail())
+                .mobNo(customer.getMobNo())
+                .build();
+        return customerResponseDto;
+
+    }
+
 }
 
