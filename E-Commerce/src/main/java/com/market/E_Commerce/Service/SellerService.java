@@ -13,24 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class SellerService
-{
-  @Autowired
+public class SellerService {
+    @Autowired
     SellerRepository sellerRepo;
 
-  public String addseller(SellerRequestDto sellerRequestDto)
-  {
-      //  only seller object is recognised by this class
-      // lets make seller object first using builder
-      // setting all paramter in one line code
+    public String addseller(SellerRequestDto sellerRequestDto) {
+        //  only seller object is recognised by this class
+        // lets make seller object first using builder
+        // setting all paramter in one line code
 
-      Seller seller = SellerConverter.SellerRequestDtoToSeller(sellerRequestDto);
-      sellerRepo.save(seller);
+        Seller seller = SellerConverter.SellerRequestDtoToSeller(sellerRequestDto);
+        sellerRepo.save(seller);
 
-      return "Congrats! Now you can starts selling";
-  }
-    public List<SellerResponseDto> getAllSeller()
-    {
+        return "Congrats! Now you can starts selling";
+    }
+
+    public List<SellerResponseDto> getAllSeller() {
         // Fetching all sellers from the repository
         List<Seller> sellers = sellerRepo.findAll();
 
@@ -50,8 +48,8 @@ public class SellerService
         // Returning the list of SellerResponseDto
         return sellerResponseDtoList;
     }
-    public SellerResponseDto getByPanNo(String panNo)
-    {
+
+    public SellerResponseDto getByPanNo(String panNo) {
         // finding seller
         Seller seller = sellerRepo.getByPanNo(panNo);
 
@@ -75,18 +73,24 @@ public class SellerService
 
         List<SellerResponseDto> requiredSellers = new ArrayList<>();
 
-        for(Seller seller1:sellers)
+        for (Seller seller1 : sellers)
         {
-            SellerResponseDto sellerResponseDto1 = SellerResponseDto.builder()
-                    .age(seller1.getAge())
-                    .panNo(seller1.getPanNo())
-                    .email(seller1.getEmail())
-                    .name(seller1.getName())
-                    .mobNo(seller1.getMobNo())
-                    .build();
-            requiredSellers.add(sellerResponseDto1);
-        }
-        return requiredSellers;
+            if (seller1.getAge() == age)
+            {
+                SellerResponseDto sellerResponseDto = SellerResponseDto.builder()
+                        .age(seller1.getAge())
+                        .panNo(seller1.getPanNo())
+                        .email(seller1.getEmail())
+                        .name(seller1.getName())
+                        .mobNo(seller1.getMobNo())
+                        .build();
 
+                requiredSellers.add(sellerResponseDto);
+            }
+        }
+
+        return requiredSellers;
     }
+
 }
+

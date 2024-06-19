@@ -59,7 +59,6 @@ public class SellerController
         return new ResponseEntity<>(sellerResponseDtoList,HttpStatus.ACCEPTED);
     }
 
-
     }
 
 
