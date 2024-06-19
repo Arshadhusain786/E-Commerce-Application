@@ -42,7 +42,7 @@ public class CustomerController
     @GetMapping("get_all_customer")
     public List<CustomerResponseDto> getAllCustomer()
     {
-      return   customerService.getAllCustomer();
+      return customerService.getAllCustomer();
 
     }
     @DeleteMapping("delete_by_id")

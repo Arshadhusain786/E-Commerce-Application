@@ -1,4 +1,5 @@
-package com.market.E_Commerce.RequestDTO;
+package com.market.E_Commerce.ResponseDTO;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SellerRequestDto
+public class SellerResponseDto
 {
     private String name;
 
@@ -20,5 +21,4 @@ public class SellerRequestDto
     private String mobNo;
 
     private String panNo;
-
 }

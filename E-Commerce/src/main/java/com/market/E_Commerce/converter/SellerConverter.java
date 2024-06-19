@@ -10,6 +10,7 @@ public class SellerConverter
         return Seller.builder()
                 .name(sellerRequestDto.getName())
                 .email(sellerRequestDto.getEmail())
+                .age(sellerRequestDto.getAge())
                 .mobNo(sellerRequestDto.getMobNo())
                 .panNo(sellerRequestDto.getPanNo())
                 .build();

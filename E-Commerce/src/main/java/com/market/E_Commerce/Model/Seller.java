@@ -23,6 +23,7 @@ public class Seller
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     int id;
     private String name;
+    private int age;
 
     @Column(unique= true)
     private String email;
