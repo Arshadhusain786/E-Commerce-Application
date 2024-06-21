@@ -3,6 +3,7 @@ package com.market.E_Commerce.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name="orders")
 public class Ordered
 {
@@ -24,8 +26,8 @@ public class Ordered
 
     @CreationTimestamp
     private Date orderdate;
-    private double totalCost;
-    private double deliveryCharge;
+    private int totalCost;
+    private int deliveryCharge;
     private String cardUsedForPayment;
 
     @ManyToOne

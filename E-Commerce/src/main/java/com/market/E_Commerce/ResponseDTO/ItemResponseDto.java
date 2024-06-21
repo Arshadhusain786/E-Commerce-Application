@@ -1,6 +1,8 @@
-package com.market.E_Commerce.RequestDTO;
+package com.market.E_Commerce.ResponseDTO;
+
 
 import com.market.E_Commerce.Enum.ProductCategory;
+import com.market.E_Commerce.Enum.ProductStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,13 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-public class ProductRequestDto
+public class ItemResponseDto
 {
-    private int sellerId;
     private String name;
-    private int price;
-    private int quantity;
-
-    private ProductCategory category;
+    private double price;
+    private ProductCategory productCategory;
+    private ProductStatus productStatus;
 }

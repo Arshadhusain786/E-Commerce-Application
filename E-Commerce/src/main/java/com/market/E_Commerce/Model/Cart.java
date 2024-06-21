@@ -19,7 +19,7 @@ public class Cart
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     int id;
-    private double cartTotal;
+    private int cartTotal;
 
     @OneToOne
     @JoinColumn

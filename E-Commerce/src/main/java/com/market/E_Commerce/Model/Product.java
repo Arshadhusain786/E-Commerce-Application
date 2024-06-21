@@ -23,7 +23,7 @@ public class Product
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     int id;
     private String name;
-    private double price;
+    private int price;
     private int quantity;
 
     @Enumerated(EnumType.STRING)
