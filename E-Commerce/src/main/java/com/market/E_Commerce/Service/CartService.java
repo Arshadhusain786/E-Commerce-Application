@@ -129,7 +129,7 @@ public class CartService
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("evild6395@gmail.com");
         message.setTo(customer.getEmail());
-        message.setSubject("issue book notification");
+        message.setSubject("Order placed notification !");
         message.setText(text);
         emailSender.send(message);
 
